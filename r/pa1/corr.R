@@ -5,12 +5,11 @@ corr <- function(directory, threshold = 0) {
   for(file in files) {
 		data = readfile(directory, file)
 
-		validNitrate = complete.cases(data$nitrate)
-		validSulfate = complete.cases(data$nitrate)
-    nobs = sum(validNitrate & validSulfate)
+		valid_rows = complete.cases(data$nitrate) & complete.cases(data$sulfate)
+    nobs = sum(valid_rows)
 
     if(nobs > threshold) {
-      valid_data = data[!is.na(data$nitrate) & !is.na(data$sulfate),]
+      valid_data = data[valid_rows,]
       correlation = cor(valid_data$sulfate, valid_data$nitrate)
       correlations = c(correlations, correlation)
     }
