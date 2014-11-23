@@ -33,7 +33,7 @@ asDouble = function(column) {
 	suppressWarnings(as.double(column))
 }
 
-rowFromNum(num, data) {
+rowFromNum = function(num, sorted_data) {
 	if(num == "best") return(1)
 	if(num == "worst") return(nrow(sorted_data))
 	return(num)
