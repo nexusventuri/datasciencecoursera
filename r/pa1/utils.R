@@ -6,6 +6,6 @@ readfile <- function(directory, filename) {
 loadPackage <- function(package) {
 	if(!require(package, character.only=TRUE)) {
 		install.packages(package)
-		if(!require(x,character.only = TRUE)) stop("Package not found")
+		if(!require(package,character.only = TRUE)) stop("Package not found")
 	}
 }
