@@ -1,4 +1,5 @@
 #!/usr/bin/env Rscript
+source("utils.R")
 
 download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FGDP.csv", "GDP.csv", method="curl")
 
@@ -15,8 +16,7 @@ mean(gdp[,5])
 print("# Grep string")
 length(grep("^United", gdp[,4]))
 
-install.packages("plyr")
-library("plyr")
+loadPackage("plyr")
 
 download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fdata%2FEDSTATS_Country.csv", "stats_country.csv", method="curl")
 country_stats = read.csv("stats_country.csv")
